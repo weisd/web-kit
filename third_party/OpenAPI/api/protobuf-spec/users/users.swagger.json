@@ -1,0 +1,106 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "api/protobuf-spec/users/users.proto",
+    "version": "1.0"
+  },
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/users": {
+      "post": {
+        "operationId": "AddUser",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/protobufEmpty"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/usersUsers"
+            }
+          }
+        ],
+        "tags": [
+          "UsersService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufEmpty": {
+      "type": "object",
+      "description": "service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+      "title": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:"
+    },
+    "usersUsers": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "string",
+          "format": "int64"
+        },
+        "phone": {
+          "type": "string",
+          "format": "int64"
+        },
+        "email": {
+          "type": "string"
+        },
+        "nick_name": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "salt": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/usersUsersStatus"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "User User"
+    },
+    "usersUsersStatus": {
+      "type": "string",
+      "enum": [
+        "None",
+        "Normal",
+        "Disable"
+      ],
+      "default": "None",
+      "description": "- None: 未激活\n - Normal: 正常\n - Disable: 禁用",
+      "title": "UserStatus 用户状态"
+    }
+  },
+  "externalDocs": {
+    "description": "gRPC web-kit repository",
+    "url": "https://github.com/weisd/web-kit"
+  }
+}
