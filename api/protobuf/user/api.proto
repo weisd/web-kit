@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package user;
+
+// import "google/protobuf/empty.proto";
+// import "google/protobuf/timestamp.proto";
+// import "google/protobuf/duration.proto";
+// import "google/protobuf/field_mask.proto";
+import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+import "github.com/mwitkow/go-proto-validators/validator.proto";
+
+import "api/protobuf/user/user.proto";
+
+// 生成的路径及文件名
+// option go_package = "github.com/weisd/web-kit/api/protobuf-spec;user";
+
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+  info: {
+    version: "1.0";
+  };
+  external_docs: {
+    url: "https://github.com/weisd/web-kit";
+    description: "gRPC web-kit repository";
+  }
+  schemes: HTTPS;
+};
+
+service APIService {
+
+    // Login 创建用户
+    rpc Login(LoginRequest) returns (user.User) {
+        option (google.api.http) = {
+            post: "/api/user/v1/login"
+            body: "*"
+        };
+    }
+}
+
+
+message LoginRequest {
+    string account = 1;
+    string password = 2;
+}

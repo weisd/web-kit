@@ -1,0 +1,1 @@
+go build -v -o bin/swagger cmd/swagger/main.go

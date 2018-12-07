@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MYDIR=./api/protobuf-spec
+MYDIR=./api/protobuf
 
 DIRS=`ls -l $MYDIR | egrep '^d' | awk '{print $9}'`
 
@@ -41,4 +41,6 @@ Mgoogle/protobuf/field_mask.proto=github.com/gogo/protobuf/types:.\
 
 
 done
+
+statik -m -f -src third_party/OpenAPI/
 
