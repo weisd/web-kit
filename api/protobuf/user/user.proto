@@ -117,6 +117,13 @@ service RPCService {
         };
     }
 
+    // InfoByNickname 通过Nickname查询
+    rpc InfoByNickname(Nickname) returns (User) {
+        option (google.api.http) = {
+            get: "/rpc/user/v1/info/nickname"
+        };
+    }
+
     // InfoByAccount 通过 手机、email、昵称查询
     rpc InfoByAccount(Account) returns (User) {
         option (google.api.http) = {
@@ -124,6 +131,11 @@ service RPCService {
         };
     }
 }
+
+
+/////////////////// model ////////////////
+/////////////////// model ////////////////
+/////////////////// model ////////////////
 
 // UserStatus 用户状态
 enum UserStatus {
@@ -138,7 +150,7 @@ enum UserStatus {
 // User User
 message User {
     int64 ID = 1;
-    int64 phone = 2;
+    string phone = 2;
     string email = 3;
     string nick_name = 4;
     string password = 5;
@@ -148,6 +160,10 @@ message User {
     google.protobuf.Timestamp created_at = 9 [(gogoproto.stdtime) = true];
     google.protobuf.Timestamp updated_at = 10 [(gogoproto.stdtime) = true];
 }
+
+////////////// request params ////////////
+////////////// request params ////////////
+////////////// request params ////////////
 
 // ID ID
 message ID {
@@ -177,6 +193,7 @@ message Account {
 message IDPassword {
     int64 ID = 1;
     string password = 2;
+    string salt = 3;
 }
 
 // IDPhone IDPhone

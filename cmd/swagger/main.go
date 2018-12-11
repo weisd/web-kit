@@ -1,6 +1,7 @@
 package main
 
 import (
+	"strings"
 	"context"
 	"crypto/tls"
 	"flag"
@@ -33,6 +34,7 @@ import (
 var (
 	gRPCPort    = flag.Int("grpc-port", 10000, "The gRPC server port")
 	gatewayPort = flag.Int("gateway-port", 11000, "The gRPC-Gateway server port")
+	modelDSN = flag.String("model-dns","memory", "The  Date Model driver dns")
 )
 
 var log grpclog.LoggerV2
@@ -62,10 +64,23 @@ func serveOpenAPI(mux *http.ServeMux) error {
 func main() {
 	flag.Parse()
 	addr := fmt.Sprintf("localhost:%d", *gRPCPort)
+
+
+	dsn := *modelDSN
+
+	idx :=strings.Index(*modelDSN, ":")
+	if idx == -1 {
+		log.Fatalln("invalid model dsn")
+	}
+
+	
+
+
 	lis, err := net.Listen("tcp", addr)
 	if err != nil {
 		log.Fatalln("Failed to listen:", err)
 	}
+
 	s := grpc.NewServer(
 		grpc.Creds(credentials.NewServerTLSFromCert(&insecure.Cert)),
 		grpc.UnaryInterceptor(grpc_validator.UnaryServerInterceptor()),
