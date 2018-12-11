@@ -19,14 +19,13 @@ import (
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/grpclog"
 
-	
 	// "github.com/gogo/grpc-example/server"
 
 	// Static files gen from third_party by statik
 	_ "github.com/weisd/web-kit/statik"
 
 	"github.com/weisd/web-kit/configs/insecure"
-	
+
 	"github.com/weisd/web-kit/api/protobuf/user"
 	userServer "github.com/weisd/web-kit/internal/app/user"
 )
@@ -74,9 +73,8 @@ func main() {
 	)
 
 	// user rpc
-	user.RegisterUserRpcServiceServer(s, userServer.NewRcpServer())
+	user.RegisterRPCServiceServer(s, userServer.NewRPCServer())
 	user.RegisterAPIServiceServer(s, userServer.NewAPIServer())
-
 
 	// Serve gRPC Server
 	log.Info("Serving gRPC on https://", addr)
@@ -112,7 +110,13 @@ func main() {
 	)
 
 	// user rpc gw
-	err = user.RegisterUserRpcServiceHandler(context.Background(), gwmux, conn)
+	err = user.RegisterRPCServiceHandler(context.Background(), gwmux, conn)
+	if err != nil {
+		log.Fatalln("Failed to register gateway:", err)
+	}
+
+	// user api gw
+	err = user.RegisterAPIServiceHandler(context.Background(), gwmux, conn)
 	if err != nil {
 		log.Fatalln("Failed to register gateway:", err)
 	}

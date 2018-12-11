@@ -37,8 +37,8 @@ option (gogoproto.goproto_registration) = true;
 option (gogoproto.messagename_all) = true;
 
 
-// UserRpcService RPC for backend 
-service UserRpcService {
+// RPCService RPC for backend 
+service RPCService {
 
     // Create 创建用户
     rpc Create(User) returns (google.protobuf.Empty) {

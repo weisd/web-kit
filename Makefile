@@ -2,8 +2,11 @@
 gen:
 	./scripts/protoc.sh
 
-build:
+gb:
 	./scripts/build.sh
+
+up:
+	./bin/swagger
 
 install:
 	go install \

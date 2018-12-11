@@ -28,7 +28,7 @@ var _ status.Status
 var _ = runtime.String
 var _ = utilities.NewDoubleArray
 
-func request_UserRpcService_Create_0(ctx context.Context, marshaler runtime.Marshaler, client UserRpcServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_RPCService_Create_0(ctx context.Context, marshaler runtime.Marshaler, client RPCServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq User
 	var metadata runtime.ServerMetadata
 
@@ -41,7 +41,7 @@ func request_UserRpcService_Create_0(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func request_UserRpcService_UpdatePassword_0(ctx context.Context, marshaler runtime.Marshaler, client UserRpcServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_RPCService_UpdatePassword_0(ctx context.Context, marshaler runtime.Marshaler, client RPCServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq IDPassword
 	var metadata runtime.ServerMetadata
 
@@ -54,7 +54,7 @@ func request_UserRpcService_UpdatePassword_0(ctx context.Context, marshaler runt
 
 }
 
-func request_UserRpcService_UpdatePhone_0(ctx context.Context, marshaler runtime.Marshaler, client UserRpcServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_RPCService_UpdatePhone_0(ctx context.Context, marshaler runtime.Marshaler, client RPCServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq IDPhone
 	var metadata runtime.ServerMetadata
 
@@ -67,7 +67,7 @@ func request_UserRpcService_UpdatePhone_0(ctx context.Context, marshaler runtime
 
 }
 
-func request_UserRpcService_UpdateEmail_0(ctx context.Context, marshaler runtime.Marshaler, client UserRpcServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_RPCService_UpdateEmail_0(ctx context.Context, marshaler runtime.Marshaler, client RPCServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq IDEmail
 	var metadata runtime.ServerMetadata
 
@@ -80,7 +80,7 @@ func request_UserRpcService_UpdateEmail_0(ctx context.Context, marshaler runtime
 
 }
 
-func request_UserRpcService_UpdateNickname_0(ctx context.Context, marshaler runtime.Marshaler, client UserRpcServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_RPCService_UpdateNickname_0(ctx context.Context, marshaler runtime.Marshaler, client RPCServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq IDNickname
 	var metadata runtime.ServerMetadata
 
@@ -93,7 +93,7 @@ func request_UserRpcService_UpdateNickname_0(ctx context.Context, marshaler runt
 
 }
 
-func request_UserRpcService_UpdateAvatar_0(ctx context.Context, marshaler runtime.Marshaler, client UserRpcServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_RPCService_UpdateAvatar_0(ctx context.Context, marshaler runtime.Marshaler, client RPCServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq IDAvatar
 	var metadata runtime.ServerMetadata
 
@@ -106,7 +106,7 @@ func request_UserRpcService_UpdateAvatar_0(ctx context.Context, marshaler runtim
 
 }
 
-func request_UserRpcService_UpdateStatus_0(ctx context.Context, marshaler runtime.Marshaler, client UserRpcServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_RPCService_UpdateStatus_0(ctx context.Context, marshaler runtime.Marshaler, client RPCServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq IDStatus
 	var metadata runtime.ServerMetadata
 
@@ -120,14 +120,14 @@ func request_UserRpcService_UpdateStatus_0(ctx context.Context, marshaler runtim
 }
 
 var (
-	filter_UserRpcService_InfoByID_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_RPCService_InfoByID_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_UserRpcService_InfoByID_0(ctx context.Context, marshaler runtime.Marshaler, client UserRpcServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_RPCService_InfoByID_0(ctx context.Context, marshaler runtime.Marshaler, client RPCServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ID
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_UserRpcService_InfoByID_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_RPCService_InfoByID_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -137,14 +137,14 @@ func request_UserRpcService_InfoByID_0(ctx context.Context, marshaler runtime.Ma
 }
 
 var (
-	filter_UserRpcService_InfoByPhone_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_RPCService_InfoByPhone_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_UserRpcService_InfoByPhone_0(ctx context.Context, marshaler runtime.Marshaler, client UserRpcServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_RPCService_InfoByPhone_0(ctx context.Context, marshaler runtime.Marshaler, client RPCServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq Phone
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_UserRpcService_InfoByPhone_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_RPCService_InfoByPhone_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -154,14 +154,14 @@ func request_UserRpcService_InfoByPhone_0(ctx context.Context, marshaler runtime
 }
 
 var (
-	filter_UserRpcService_InfoByEmail_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_RPCService_InfoByEmail_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_UserRpcService_InfoByEmail_0(ctx context.Context, marshaler runtime.Marshaler, client UserRpcServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_RPCService_InfoByEmail_0(ctx context.Context, marshaler runtime.Marshaler, client RPCServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq Email
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_UserRpcService_InfoByEmail_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_RPCService_InfoByEmail_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -171,14 +171,14 @@ func request_UserRpcService_InfoByEmail_0(ctx context.Context, marshaler runtime
 }
 
 var (
-	filter_UserRpcService_InfoByAccount_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_RPCService_InfoByAccount_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_UserRpcService_InfoByAccount_0(ctx context.Context, marshaler runtime.Marshaler, client UserRpcServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_RPCService_InfoByAccount_0(ctx context.Context, marshaler runtime.Marshaler, client RPCServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq Account
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_UserRpcService_InfoByAccount_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_RPCService_InfoByAccount_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -187,9 +187,9 @@ func request_UserRpcService_InfoByAccount_0(ctx context.Context, marshaler runti
 
 }
 
-// RegisterUserRpcServiceHandlerFromEndpoint is same as RegisterUserRpcServiceHandler but
+// RegisterRPCServiceHandlerFromEndpoint is same as RegisterRPCServiceHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterUserRpcServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+func RegisterRPCServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
 	conn, err := grpc.Dial(endpoint, opts...)
 	if err != nil {
 		return err
@@ -209,23 +209,23 @@ func RegisterUserRpcServiceHandlerFromEndpoint(ctx context.Context, mux *runtime
 		}()
 	}()
 
-	return RegisterUserRpcServiceHandler(ctx, mux, conn)
+	return RegisterRPCServiceHandler(ctx, mux, conn)
 }
 
-// RegisterUserRpcServiceHandler registers the http handlers for service UserRpcService to "mux".
+// RegisterRPCServiceHandler registers the http handlers for service RPCService to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
-func RegisterUserRpcServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterUserRpcServiceHandlerClient(ctx, mux, NewUserRpcServiceClient(conn))
+func RegisterRPCServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	return RegisterRPCServiceHandlerClient(ctx, mux, NewRPCServiceClient(conn))
 }
 
-// RegisterUserRpcServiceHandlerClient registers the http handlers for service UserRpcService
-// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "UserRpcServiceClient".
-// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "UserRpcServiceClient"
+// RegisterRPCServiceHandlerClient registers the http handlers for service RPCService
+// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "RPCServiceClient".
+// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "RPCServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "UserRpcServiceClient" to call the correct interceptors.
-func RegisterUserRpcServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client UserRpcServiceClient) error {
+// "RPCServiceClient" to call the correct interceptors.
+func RegisterRPCServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client RPCServiceClient) error {
 
-	mux.Handle("POST", pattern_UserRpcService_Create_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_RPCService_Create_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -243,18 +243,18 @@ func RegisterUserRpcServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_UserRpcService_Create_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_RPCService_Create_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_UserRpcService_Create_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_RPCService_Create_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_UserRpcService_UpdatePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_RPCService_UpdatePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -272,18 +272,18 @@ func RegisterUserRpcServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_UserRpcService_UpdatePassword_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_RPCService_UpdatePassword_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_UserRpcService_UpdatePassword_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_RPCService_UpdatePassword_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_UserRpcService_UpdatePhone_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_RPCService_UpdatePhone_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -301,18 +301,18 @@ func RegisterUserRpcServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_UserRpcService_UpdatePhone_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_RPCService_UpdatePhone_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_UserRpcService_UpdatePhone_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_RPCService_UpdatePhone_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_UserRpcService_UpdateEmail_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_RPCService_UpdateEmail_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -330,18 +330,18 @@ func RegisterUserRpcServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_UserRpcService_UpdateEmail_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_RPCService_UpdateEmail_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_UserRpcService_UpdateEmail_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_RPCService_UpdateEmail_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_UserRpcService_UpdateNickname_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_RPCService_UpdateNickname_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -359,18 +359,18 @@ func RegisterUserRpcServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_UserRpcService_UpdateNickname_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_RPCService_UpdateNickname_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_UserRpcService_UpdateNickname_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_RPCService_UpdateNickname_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_UserRpcService_UpdateAvatar_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_RPCService_UpdateAvatar_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -388,18 +388,18 @@ func RegisterUserRpcServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_UserRpcService_UpdateAvatar_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_RPCService_UpdateAvatar_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_UserRpcService_UpdateAvatar_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_RPCService_UpdateAvatar_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_UserRpcService_UpdateStatus_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_RPCService_UpdateStatus_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -417,18 +417,18 @@ func RegisterUserRpcServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_UserRpcService_UpdateStatus_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_RPCService_UpdateStatus_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_UserRpcService_UpdateStatus_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_RPCService_UpdateStatus_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_UserRpcService_InfoByID_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_RPCService_InfoByID_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -446,18 +446,18 @@ func RegisterUserRpcServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_UserRpcService_InfoByID_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_RPCService_InfoByID_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_UserRpcService_InfoByID_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_RPCService_InfoByID_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_UserRpcService_InfoByPhone_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_RPCService_InfoByPhone_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -475,18 +475,18 @@ func RegisterUserRpcServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_UserRpcService_InfoByPhone_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_RPCService_InfoByPhone_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_UserRpcService_InfoByPhone_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_RPCService_InfoByPhone_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_UserRpcService_InfoByEmail_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_RPCService_InfoByEmail_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -504,18 +504,18 @@ func RegisterUserRpcServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_UserRpcService_InfoByEmail_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_RPCService_InfoByEmail_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_UserRpcService_InfoByEmail_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_RPCService_InfoByEmail_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_UserRpcService_InfoByAccount_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_RPCService_InfoByAccount_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -533,14 +533,14 @@ func RegisterUserRpcServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_UserRpcService_InfoByAccount_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_RPCService_InfoByAccount_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_UserRpcService_InfoByAccount_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_RPCService_InfoByAccount_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -548,49 +548,49 @@ func RegisterUserRpcServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 }
 
 var (
-	pattern_UserRpcService_Create_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"rpc", "user", "v1", "creae"}, ""))
+	pattern_RPCService_Create_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"rpc", "user", "v1", "creae"}, ""))
 
-	pattern_UserRpcService_UpdatePassword_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "update", "password"}, ""))
+	pattern_RPCService_UpdatePassword_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "update", "password"}, ""))
 
-	pattern_UserRpcService_UpdatePhone_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "update", "phone"}, ""))
+	pattern_RPCService_UpdatePhone_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "update", "phone"}, ""))
 
-	pattern_UserRpcService_UpdateEmail_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "update", "email"}, ""))
+	pattern_RPCService_UpdateEmail_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "update", "email"}, ""))
 
-	pattern_UserRpcService_UpdateNickname_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "update", "nickname"}, ""))
+	pattern_RPCService_UpdateNickname_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "update", "nickname"}, ""))
 
-	pattern_UserRpcService_UpdateAvatar_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "update", "avatar"}, ""))
+	pattern_RPCService_UpdateAvatar_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "update", "avatar"}, ""))
 
-	pattern_UserRpcService_UpdateStatus_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "update", "status"}, ""))
+	pattern_RPCService_UpdateStatus_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "update", "status"}, ""))
 
-	pattern_UserRpcService_InfoByID_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "info", "id"}, ""))
+	pattern_RPCService_InfoByID_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "info", "id"}, ""))
 
-	pattern_UserRpcService_InfoByPhone_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "info", "phone"}, ""))
+	pattern_RPCService_InfoByPhone_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "info", "phone"}, ""))
 
-	pattern_UserRpcService_InfoByEmail_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "info", "email"}, ""))
+	pattern_RPCService_InfoByEmail_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "info", "email"}, ""))
 
-	pattern_UserRpcService_InfoByAccount_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "info", "account"}, ""))
+	pattern_RPCService_InfoByAccount_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"rpc", "user", "v1", "info", "account"}, ""))
 )
 
 var (
-	forward_UserRpcService_Create_0 = runtime.ForwardResponseMessage
+	forward_RPCService_Create_0 = runtime.ForwardResponseMessage
 
-	forward_UserRpcService_UpdatePassword_0 = runtime.ForwardResponseMessage
+	forward_RPCService_UpdatePassword_0 = runtime.ForwardResponseMessage
 
-	forward_UserRpcService_UpdatePhone_0 = runtime.ForwardResponseMessage
+	forward_RPCService_UpdatePhone_0 = runtime.ForwardResponseMessage
 
-	forward_UserRpcService_UpdateEmail_0 = runtime.ForwardResponseMessage
+	forward_RPCService_UpdateEmail_0 = runtime.ForwardResponseMessage
 
-	forward_UserRpcService_UpdateNickname_0 = runtime.ForwardResponseMessage
+	forward_RPCService_UpdateNickname_0 = runtime.ForwardResponseMessage
 
-	forward_UserRpcService_UpdateAvatar_0 = runtime.ForwardResponseMessage
+	forward_RPCService_UpdateAvatar_0 = runtime.ForwardResponseMessage
 
-	forward_UserRpcService_UpdateStatus_0 = runtime.ForwardResponseMessage
+	forward_RPCService_UpdateStatus_0 = runtime.ForwardResponseMessage
 
-	forward_UserRpcService_InfoByID_0 = runtime.ForwardResponseMessage
+	forward_RPCService_InfoByID_0 = runtime.ForwardResponseMessage
 
-	forward_UserRpcService_InfoByPhone_0 = runtime.ForwardResponseMessage
+	forward_RPCService_InfoByPhone_0 = runtime.ForwardResponseMessage
 
-	forward_UserRpcService_InfoByEmail_0 = runtime.ForwardResponseMessage
+	forward_RPCService_InfoByEmail_0 = runtime.ForwardResponseMessage
 
-	forward_UserRpcService_InfoByAccount_0 = runtime.ForwardResponseMessage
+	forward_RPCService_InfoByAccount_0 = runtime.ForwardResponseMessage
 )
