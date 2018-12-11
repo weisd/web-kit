@@ -12,13 +12,14 @@ type RPCServer interface {
 	Init(dsn string) error
 }
 
-var userRPCServerRegister map[string]RPCServer
+// UserRPCServerRegister UserRPCServerRegister
+var UserRPCServerRegister = map[string]RPCServer{}
 
 // RPCRegister RPCRegister
 func RPCRegister(name string, rpc RPCServer) {
-	if _, has := userRPCServerRegister[name]; has {
+	if _, has := UserRPCServerRegister[name]; has {
 		log.Fatalf("rpc server exists: %s", name)
 	}
 
-	userRPCServerRegister[name] = rpc
+	UserRPCServerRegister[name] = rpc
 }

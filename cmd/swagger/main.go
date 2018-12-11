@@ -1,7 +1,7 @@
 package main
 
 import (
-	"strings"
+
 	"context"
 	"crypto/tls"
 	"flag"
@@ -34,7 +34,8 @@ import (
 var (
 	gRPCPort    = flag.Int("grpc-port", 10000, "The gRPC server port")
 	gatewayPort = flag.Int("gateway-port", 11000, "The gRPC-Gateway server port")
-	modelDSN = flag.String("model-dns","memory", "The  Date Model driver dns")
+	deriver = flag.String("deriver","memory", "The  Date Model driver dns")
+	dsn = flag.String("dns","", "The  Date Model driver dns")
 )
 
 var log grpclog.LoggerV2
@@ -66,14 +67,14 @@ func main() {
 	addr := fmt.Sprintf("localhost:%d", *gRPCPort)
 
 
-	dsn := *modelDSN
-
-	idx :=strings.Index(*modelDSN, ":")
-	if idx == -1 {
-		log.Fatalln("invalid model dsn")
+	userRPCServer, has := userServer.UserRPCServerRegister[*deriver]; 
+	if !has {
+		log.Fatalf("user server not register: %s\n", *deriver)
 	}
 
-	
+	if err := userRPCServer.Init(*dsn); err != nil {
+		log.Fatalf("server %s init failed: %v", err)
+	}
 
 
 	lis, err := net.Listen("tcp", addr)
@@ -88,7 +89,7 @@ func main() {
 	)
 
 	// user rpc
-	user.RegisterRPCServiceServer(s, userServer.NewRPCServer())
+	user.RegisterRPCServiceServer(s, userRPCServer)
 	user.RegisterAPIServiceServer(s, userServer.NewAPIServer())
 
 	// Serve gRPC Server
