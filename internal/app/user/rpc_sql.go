@@ -2,12 +2,15 @@ package user
 
 import (
 	"context"
+	"strings"
 
 	google_protobuf2 "github.com/gogo/protobuf/types"
 	"github.com/jinzhu/gorm"
+	"github.com/pkg/errors"
 	proto "github.com/weisd/web-kit/api/protobuf/user"
 
 	"github.com/weisd/web-kit/internal/pkg/ierrors"
+	"github.com/weisd/web-kit/internal/pkg/imodel"
 	"github.com/weisd/web-kit/internal/pkg/istring"
 )
 
@@ -24,7 +27,26 @@ type SQLServer struct {
 }
 
 // Init Init
-func (p *SQLServer) Init(dsn string) error {
+func (p *SQLServer) Init(ctx context.Context, dsn string) error {
+	idx := strings.Index(dsn, ":")
+	if idx == -1 {
+		return errors.New("invalid dsn format")
+	}
+
+	cancel, db, err := imodel.NewGromDB(string(dsn[:idx]), string(dsn[idx:]))
+	if err != nil {
+		return errors.Wrap(err, "NewGromDB")
+	}
+
+	p.db = db
+
+	go func() {
+		select {
+		case <-ctx.Done():
+			cancel()
+		}
+	}()
+
 	return nil
 }
 

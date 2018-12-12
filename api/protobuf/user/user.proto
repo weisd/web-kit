@@ -157,8 +157,8 @@ message User {
     string salt = 6;
     string avatar = 7;
     UserStatus status = 8;
-    google.protobuf.Timestamp created_at = 9 [(gogoproto.stdtime) = true];
-    google.protobuf.Timestamp updated_at = 10 [(gogoproto.stdtime) = true];
+    google.protobuf.Timestamp created_at = 9 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+    google.protobuf.Timestamp updated_at = 10 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
 }
 
 ////////////// request params ////////////

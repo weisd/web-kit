@@ -25,15 +25,11 @@ var _ = math.Inf
 var _ = time.Kitchen
 
 func (this *User) Validate() error {
-	if this.CreatedAt != nil {
-		if err := go_proto_validators.CallValidatorIfExists(this.CreatedAt); err != nil {
-			return go_proto_validators.FieldError("CreatedAt", err)
-		}
+	if err := go_proto_validators.CallValidatorIfExists(&(this.CreatedAt)); err != nil {
+		return go_proto_validators.FieldError("CreatedAt", err)
 	}
-	if this.UpdatedAt != nil {
-		if err := go_proto_validators.CallValidatorIfExists(this.UpdatedAt); err != nil {
-			return go_proto_validators.FieldError("UpdatedAt", err)
-		}
+	if err := go_proto_validators.CallValidatorIfExists(&(this.UpdatedAt)); err != nil {
+		return go_proto_validators.FieldError("UpdatedAt", err)
 	}
 	return nil
 }

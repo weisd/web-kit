@@ -72,7 +72,9 @@ func main() {
 		log.Fatalf("user server not register: %s\n", *deriver)
 	}
 
-	if err := userRPCServer.Init(*dsn); err != nil {
+	ctx, cancel := context.WithCancel(context.Background())
+
+	if err := userRPCServer.Init(ctx, *dsn); err != nil {
 		log.Fatalf("server %s init failed: %v", err)
 	}
 
@@ -154,4 +156,6 @@ func main() {
 		Handler: mux,
 	}
 	log.Fatalln(gwServer.ListenAndServeTLS("", ""))
+
+	cancel()
 }

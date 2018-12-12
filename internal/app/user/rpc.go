@@ -1,6 +1,7 @@
 package user
 
 import (
+	"context"
 	"log"
 
 	proto "github.com/weisd/web-kit/api/protobuf/user"
@@ -9,7 +10,7 @@ import (
 // RPCServer RPCServer
 type RPCServer interface {
 	proto.RPCServiceServer
-	Init(dsn string) error
+	Init(ctx context.Context, dsn string) error
 }
 
 // UserRPCServerRegister UserRPCServerRegister

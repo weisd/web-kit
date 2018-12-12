@@ -1,6 +1,6 @@
 package ierrors
 
-import "errors"
+import "github.com/pkg/errors"
 
 var (
 	// ErrInValidNickname ErrInValidNicknameErrInValidNickname
