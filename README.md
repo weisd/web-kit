@@ -8,7 +8,7 @@
 
 ### models
 
-- [ ] user
+- [x] user
 - [ ] user_permission
 - [ ] product
 - [ ] order

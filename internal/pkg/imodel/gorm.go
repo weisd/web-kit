@@ -2,6 +2,7 @@ package imodel
 
 import (
 	"context"
+	"log"
 
 	"github.com/jinzhu/gorm"
 )
@@ -18,8 +19,9 @@ import (
 //    // import _ "github.com/jinzhu/gorm/dialects/postgres"
 //    // import _ "github.com/jinzhu/gorm/dialects/sqlite"
 //    // import _ "github.com/jinzhu/gorm/dialects/mssql"
-func NewGromDB(driver, dns string) (context.CancelFunc, *gorm.DB, error) {
-	db, err := gorm.Open(driver, dns)
+func NewGromDB(driver, dsn string) (context.CancelFunc, *gorm.DB, error) {
+	log.Println("NewGromDB", driver, dsn)
+	db, err := gorm.Open(driver, dsn)
 	if err != nil {
 		return nil, nil, err
 	}

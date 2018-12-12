@@ -2,6 +2,7 @@ module github.com/weisd/web-kit
 
 require (
 	github.com/fatih/structs v1.1.0 // indirect
+	github.com/go-sql-driver/mysql v1.4.1
 	github.com/gogo/gateway v1.0.0
 	github.com/gogo/googleapis v1.1.0
 	github.com/gogo/grpc-example v0.0.0-20180722122229-2b4ca28a6209

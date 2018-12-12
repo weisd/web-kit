@@ -1,4 +1,4 @@
-package pstring
+package istring
 
 import (
 	"math/rand"

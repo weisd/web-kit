@@ -34,8 +34,8 @@ import (
 var (
 	gRPCPort    = flag.Int("grpc-port", 10000, "The gRPC server port")
 	gatewayPort = flag.Int("gateway-port", 11000, "The gRPC-Gateway server port")
-	deriver = flag.String("deriver","memory", "The  Date Model driver dns")
-	dsn = flag.String("dns","", "The  Date Model driver dns")
+	deriver = flag.String("deriver","memory", "The  Date Model driver dsn incloud: menory,sql, default:memory")
+	dsn = flag.String("dsn","", "The  Date Model driver dsn, eg: mysql:<username>:<password>@tcp(<localhost>)/<dbname>?charset=utf8mb4&parseTime=True&loc=Local")
 )
 
 var log grpclog.LoggerV2
@@ -43,6 +43,8 @@ var log grpclog.LoggerV2
 func init() {
 	log = grpclog.NewLoggerV2(os.Stdout, ioutil.Discard, ioutil.Discard)
 	grpclog.SetLoggerV2(log)
+
+
 }
 
 // serveOpenAPI serves an OpenAPI UI on /openapi-ui/
@@ -65,6 +67,8 @@ func serveOpenAPI(mux *http.ServeMux) error {
 func main() {
 	flag.Parse()
 	addr := fmt.Sprintf("localhost:%d", *gRPCPort)
+
+	log.Infoln("model start with", *deriver, *dsn)
 
 
 	userRPCServer, has := userServer.UserRPCServerRegister[*deriver]; 

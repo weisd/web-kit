@@ -9,6 +9,7 @@ import (
 	"github.com/pkg/errors"
 	proto "github.com/weisd/web-kit/api/protobuf/user"
 
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/weisd/web-kit/internal/pkg/ierrors"
 	"github.com/weisd/web-kit/internal/pkg/imodel"
 	"github.com/weisd/web-kit/internal/pkg/istring"
@@ -33,12 +34,15 @@ func (p *SQLServer) Init(ctx context.Context, dsn string) error {
 		return errors.New("invalid dsn format")
 	}
 
-	cancel, db, err := imodel.NewGromDB(string(dsn[:idx]), string(dsn[idx:]))
+	cancel, db, err := imodel.NewGromDB(string(dsn[:idx]), string(dsn[idx+1:]))
 	if err != nil {
 		return errors.Wrap(err, "NewGromDB")
 	}
 
 	p.db = db
+
+	// 创建表
+	p.initTables()
 
 	go func() {
 		select {
@@ -50,8 +54,21 @@ func (p *SQLServer) Init(ctx context.Context, dsn string) error {
 	return nil
 }
 
+func (p *SQLServer) initTables() {
+	if !p.db.HasTable(&proto.User{}) {
+		p.db.Set("gorm:table_options", "ENGINE=InnoDB DEFAULT CHARACTER SET=utf8").AutoMigrate(&proto.User{})
+		p.db.Model(&proto.User{}).AddIndex("idx_user_phone", "phone")
+	}
+}
+
 // Create CreateCreate
 func (p *SQLServer) Create(ctx context.Context, in *proto.User) (out *google_protobuf2.Empty, err error) {
+
+	if len(in.Password) > 0 {
+		in.Salt = istring.RandString(4)
+		in.Password = istring.HashPassword(in.Password, in.Salt)
+	}
+
 	db := p.db.Create(in)
 
 	return &google_protobuf2.Empty{}, db.Error
@@ -59,6 +76,12 @@ func (p *SQLServer) Create(ctx context.Context, in *proto.User) (out *google_pro
 
 // UpdatePassword 更新密码
 func (p *SQLServer) UpdatePassword(ctx context.Context, in *proto.IDPassword) (out *google_protobuf2.Empty, err error) {
+
+	if len(in.Password) > 0 {
+		in.Salt = istring.RandString(4)
+		in.Password = istring.HashPassword(in.Password, in.Salt)
+	}
+
 	db := p.db.Model(&proto.User{ID: in.ID}).Updates(proto.User{
 		Password: in.Password,
 		Salt:     in.Salt,
