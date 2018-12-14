@@ -2,6 +2,7 @@ module github.com/weisd/web-kit
 
 require (
 	github.com/fatih/structs v1.1.0 // indirect
+	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/gogo/gateway v1.0.0
 	github.com/gogo/googleapis v1.1.0
@@ -17,4 +18,5 @@ require (
 	github.com/rakyll/statik v0.1.5
 	golang.org/x/net v0.0.0-20181201002055-351d144fa1fc
 	google.golang.org/grpc v1.17.0
+	gopkg.in/yaml.v2 v2.2.2 // indirect
 )
