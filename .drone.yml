@@ -1,0 +1,10 @@
+workspace:
+  base: /go
+
+pipeline:
+  build:
+    image: golang
+    commands:
+      - echo $GOPATH
+      - pwd
+      - go build -v -o bin/swagger cmd/swagger/main.go 
