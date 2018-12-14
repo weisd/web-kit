@@ -3,16 +3,15 @@
 
 package user
 
-import go_proto_validators "github.com/mwitkow/go-proto-validators"
+import github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 import proto "github.com/gogo/protobuf/proto"
 import golang_proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import _ "github.com/gogo/protobuf/types"
-import _ "github.com/gogo/protobuf/types"
 import _ "github.com/gogo/googleapis/google/api"
-import _ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 import _ "github.com/gogo/protobuf/gogoproto"
+import _ "github.com/gogo/protobuf/types"
+import _ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 import _ "github.com/mwitkow/go-proto-validators"
 
 import time "time"
@@ -25,11 +24,11 @@ var _ = math.Inf
 var _ = time.Kitchen
 
 func (this *User) Validate() error {
-	if err := go_proto_validators.CallValidatorIfExists(&(this.CreatedAt)); err != nil {
-		return go_proto_validators.FieldError("CreatedAt", err)
+	if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(&(this.CreatedAt)); err != nil {
+		return github_com_mwitkow_go_proto_validators.FieldError("CreatedAt", err)
 	}
-	if err := go_proto_validators.CallValidatorIfExists(&(this.UpdatedAt)); err != nil {
-		return go_proto_validators.FieldError("UpdatedAt", err)
+	if err := github_com_mwitkow_go_proto_validators.CallValidatorIfExists(&(this.UpdatedAt)); err != nil {
+		return github_com_mwitkow_go_proto_validators.FieldError("UpdatedAt", err)
 	}
 	return nil
 }

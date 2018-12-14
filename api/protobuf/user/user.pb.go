@@ -7,19 +7,20 @@ import proto "github.com/gogo/protobuf/proto"
 import golang_proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import google_protobuf2 "github.com/gogo/protobuf/types"
-import _ "github.com/gogo/protobuf/types"
 import _ "github.com/gogo/googleapis/google/api"
-import _ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 import _ "github.com/gogo/protobuf/gogoproto"
+import types "github.com/gogo/protobuf/types"
+import _ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 import _ "github.com/mwitkow/go-proto-validators"
 
 import time "time"
 
-import context "golang.org/x/net/context"
-import grpc "google.golang.org/grpc"
+import (
+	context "golang.org/x/net/context"
+	grpc "google.golang.org/grpc"
+)
 
-import types "github.com/gogo/protobuf/types"
+import github_com_gogo_protobuf_types "github.com/gogo/protobuf/types"
 
 import io "io"
 
@@ -29,6 +30,12 @@ var _ = golang_proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 var _ = time.Kitchen
+
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 
 // UserStatus 用户状态
 type UserStatus int32
@@ -56,26 +63,59 @@ var UserStatus_value = map[string]int32{
 func (x UserStatus) String() string {
 	return proto.EnumName(UserStatus_name, int32(x))
 }
-func (UserStatus) EnumDescriptor() ([]byte, []int) { return fileDescriptorUser, []int{0} }
+func (UserStatus) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_user_9d32c4e0145e8e69, []int{0}
+}
 
 // User User
 type User struct {
-	ID        int64      `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Phone     string     `protobuf:"bytes,2,opt,name=phone,proto3" json:"phone,omitempty"`
-	Email     string     `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
-	NickName  string     `protobuf:"bytes,4,opt,name=nick_name,json=nickName,proto3" json:"nick_name,omitempty"`
-	Password  string     `protobuf:"bytes,5,opt,name=password,proto3" json:"password,omitempty"`
-	Salt      string     `protobuf:"bytes,6,opt,name=salt,proto3" json:"salt,omitempty"`
-	Avatar    string     `protobuf:"bytes,7,opt,name=avatar,proto3" json:"avatar,omitempty"`
-	Status    UserStatus `protobuf:"varint,8,opt,name=status,proto3,enum=user.UserStatus" json:"status,omitempty"`
-	CreatedAt time.Time  `protobuf:"bytes,9,opt,name=created_at,json=createdAt,stdtime" json:"created_at"`
-	UpdatedAt time.Time  `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,stdtime" json:"updated_at"`
+	ID                   int64      `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Phone                string     `protobuf:"bytes,2,opt,name=phone,proto3" json:"phone,omitempty"`
+	Email                string     `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
+	NickName             string     `protobuf:"bytes,4,opt,name=nick_name,json=nickName,proto3" json:"nick_name,omitempty"`
+	Password             string     `protobuf:"bytes,5,opt,name=password,proto3" json:"password,omitempty"`
+	Salt                 string     `protobuf:"bytes,6,opt,name=salt,proto3" json:"salt,omitempty"`
+	Avatar               string     `protobuf:"bytes,7,opt,name=avatar,proto3" json:"avatar,omitempty"`
+	Status               UserStatus `protobuf:"varint,8,opt,name=status,proto3,enum=user.UserStatus" json:"status,omitempty"`
+	CreatedAt            time.Time  `protobuf:"bytes,9,opt,name=created_at,json=createdAt,proto3,stdtime" json:"created_at"`
+	UpdatedAt            time.Time  `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3,stdtime" json:"updated_at"`
+	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
+	XXX_unrecognized     []byte     `json:"-"`
+	XXX_sizecache        int32      `json:"-"`
 }
 
-func (m *User) Reset()                    { *m = User{} }
-func (m *User) String() string            { return proto.CompactTextString(m) }
-func (*User) ProtoMessage()               {}
-func (*User) Descriptor() ([]byte, []int) { return fileDescriptorUser, []int{0} }
+func (m *User) Reset()         { *m = User{} }
+func (m *User) String() string { return proto.CompactTextString(m) }
+func (*User) ProtoMessage()    {}
+func (*User) Descriptor() ([]byte, []int) {
+	return fileDescriptor_user_9d32c4e0145e8e69, []int{0}
+}
+func (m *User) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *User) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_User.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *User) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_User.Merge(dst, src)
+}
+func (m *User) XXX_Size() int {
+	return m.Size()
+}
+func (m *User) XXX_DiscardUnknown() {
+	xxx_messageInfo_User.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_User proto.InternalMessageInfo
 
 func (m *User) GetID() int64 {
 	if m != nil {
@@ -153,13 +193,44 @@ func (*User) XXX_MessageName() string {
 
 // ID ID
 type ID struct {
-	ID int64 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	ID                   int64    `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ID) Reset()                    { *m = ID{} }
-func (m *ID) String() string            { return proto.CompactTextString(m) }
-func (*ID) ProtoMessage()               {}
-func (*ID) Descriptor() ([]byte, []int) { return fileDescriptorUser, []int{1} }
+func (m *ID) Reset()         { *m = ID{} }
+func (m *ID) String() string { return proto.CompactTextString(m) }
+func (*ID) ProtoMessage()    {}
+func (*ID) Descriptor() ([]byte, []int) {
+	return fileDescriptor_user_9d32c4e0145e8e69, []int{1}
+}
+func (m *ID) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *ID) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_ID.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *ID) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ID.Merge(dst, src)
+}
+func (m *ID) XXX_Size() int {
+	return m.Size()
+}
+func (m *ID) XXX_DiscardUnknown() {
+	xxx_messageInfo_ID.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ID proto.InternalMessageInfo
 
 func (m *ID) GetID() int64 {
 	if m != nil {
@@ -174,13 +245,44 @@ func (*ID) XXX_MessageName() string {
 
 // Phone Phone
 type Phone struct {
-	Phone string `protobuf:"bytes,1,opt,name=phone,proto3" json:"phone,omitempty"`
+	Phone                string   `protobuf:"bytes,1,opt,name=phone,proto3" json:"phone,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Phone) Reset()                    { *m = Phone{} }
-func (m *Phone) String() string            { return proto.CompactTextString(m) }
-func (*Phone) ProtoMessage()               {}
-func (*Phone) Descriptor() ([]byte, []int) { return fileDescriptorUser, []int{2} }
+func (m *Phone) Reset()         { *m = Phone{} }
+func (m *Phone) String() string { return proto.CompactTextString(m) }
+func (*Phone) ProtoMessage()    {}
+func (*Phone) Descriptor() ([]byte, []int) {
+	return fileDescriptor_user_9d32c4e0145e8e69, []int{2}
+}
+func (m *Phone) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *Phone) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_Phone.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *Phone) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Phone.Merge(dst, src)
+}
+func (m *Phone) XXX_Size() int {
+	return m.Size()
+}
+func (m *Phone) XXX_DiscardUnknown() {
+	xxx_messageInfo_Phone.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Phone proto.InternalMessageInfo
 
 func (m *Phone) GetPhone() string {
 	if m != nil {
@@ -195,13 +297,44 @@ func (*Phone) XXX_MessageName() string {
 
 // Email Email
 type Email struct {
-	Email string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	Email                string   `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Email) Reset()                    { *m = Email{} }
-func (m *Email) String() string            { return proto.CompactTextString(m) }
-func (*Email) ProtoMessage()               {}
-func (*Email) Descriptor() ([]byte, []int) { return fileDescriptorUser, []int{3} }
+func (m *Email) Reset()         { *m = Email{} }
+func (m *Email) String() string { return proto.CompactTextString(m) }
+func (*Email) ProtoMessage()    {}
+func (*Email) Descriptor() ([]byte, []int) {
+	return fileDescriptor_user_9d32c4e0145e8e69, []int{3}
+}
+func (m *Email) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *Email) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_Email.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *Email) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Email.Merge(dst, src)
+}
+func (m *Email) XXX_Size() int {
+	return m.Size()
+}
+func (m *Email) XXX_DiscardUnknown() {
+	xxx_messageInfo_Email.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Email proto.InternalMessageInfo
 
 func (m *Email) GetEmail() string {
 	if m != nil {
@@ -216,13 +349,44 @@ func (*Email) XXX_MessageName() string {
 
 // Nickname Nickname
 type Nickname struct {
-	Nickname string `protobuf:"bytes,1,opt,name=nickname,proto3" json:"nickname,omitempty"`
+	Nickname             string   `protobuf:"bytes,1,opt,name=nickname,proto3" json:"nickname,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Nickname) Reset()                    { *m = Nickname{} }
-func (m *Nickname) String() string            { return proto.CompactTextString(m) }
-func (*Nickname) ProtoMessage()               {}
-func (*Nickname) Descriptor() ([]byte, []int) { return fileDescriptorUser, []int{4} }
+func (m *Nickname) Reset()         { *m = Nickname{} }
+func (m *Nickname) String() string { return proto.CompactTextString(m) }
+func (*Nickname) ProtoMessage()    {}
+func (*Nickname) Descriptor() ([]byte, []int) {
+	return fileDescriptor_user_9d32c4e0145e8e69, []int{4}
+}
+func (m *Nickname) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *Nickname) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_Nickname.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *Nickname) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Nickname.Merge(dst, src)
+}
+func (m *Nickname) XXX_Size() int {
+	return m.Size()
+}
+func (m *Nickname) XXX_DiscardUnknown() {
+	xxx_messageInfo_Nickname.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Nickname proto.InternalMessageInfo
 
 func (m *Nickname) GetNickname() string {
 	if m != nil {
@@ -236,13 +400,44 @@ func (*Nickname) XXX_MessageName() string {
 }
 
 type Account struct {
-	Account string `protobuf:"bytes,1,opt,name=account,proto3" json:"account,omitempty"`
+	Account              string   `protobuf:"bytes,1,opt,name=account,proto3" json:"account,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Account) Reset()                    { *m = Account{} }
-func (m *Account) String() string            { return proto.CompactTextString(m) }
-func (*Account) ProtoMessage()               {}
-func (*Account) Descriptor() ([]byte, []int) { return fileDescriptorUser, []int{5} }
+func (m *Account) Reset()         { *m = Account{} }
+func (m *Account) String() string { return proto.CompactTextString(m) }
+func (*Account) ProtoMessage()    {}
+func (*Account) Descriptor() ([]byte, []int) {
+	return fileDescriptor_user_9d32c4e0145e8e69, []int{5}
+}
+func (m *Account) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *Account) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_Account.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *Account) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Account.Merge(dst, src)
+}
+func (m *Account) XXX_Size() int {
+	return m.Size()
+}
+func (m *Account) XXX_DiscardUnknown() {
+	xxx_messageInfo_Account.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Account proto.InternalMessageInfo
 
 func (m *Account) GetAccount() string {
 	if m != nil {
@@ -257,15 +452,46 @@ func (*Account) XXX_MessageName() string {
 
 // IDPassword IDPassword
 type IDPassword struct {
-	ID       int64  `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
-	Salt     string `protobuf:"bytes,3,opt,name=salt,proto3" json:"salt,omitempty"`
+	ID                   int64    `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Password             string   `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
+	Salt                 string   `protobuf:"bytes,3,opt,name=salt,proto3" json:"salt,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *IDPassword) Reset()                    { *m = IDPassword{} }
-func (m *IDPassword) String() string            { return proto.CompactTextString(m) }
-func (*IDPassword) ProtoMessage()               {}
-func (*IDPassword) Descriptor() ([]byte, []int) { return fileDescriptorUser, []int{6} }
+func (m *IDPassword) Reset()         { *m = IDPassword{} }
+func (m *IDPassword) String() string { return proto.CompactTextString(m) }
+func (*IDPassword) ProtoMessage()    {}
+func (*IDPassword) Descriptor() ([]byte, []int) {
+	return fileDescriptor_user_9d32c4e0145e8e69, []int{6}
+}
+func (m *IDPassword) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *IDPassword) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_IDPassword.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *IDPassword) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_IDPassword.Merge(dst, src)
+}
+func (m *IDPassword) XXX_Size() int {
+	return m.Size()
+}
+func (m *IDPassword) XXX_DiscardUnknown() {
+	xxx_messageInfo_IDPassword.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_IDPassword proto.InternalMessageInfo
 
 func (m *IDPassword) GetID() int64 {
 	if m != nil {
@@ -294,14 +520,45 @@ func (*IDPassword) XXX_MessageName() string {
 
 // IDPhone IDPhone
 type IDPhone struct {
-	ID    int64  `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Phone string `protobuf:"bytes,2,opt,name=phone,proto3" json:"phone,omitempty"`
+	ID                   int64    `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Phone                string   `protobuf:"bytes,2,opt,name=phone,proto3" json:"phone,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *IDPhone) Reset()                    { *m = IDPhone{} }
-func (m *IDPhone) String() string            { return proto.CompactTextString(m) }
-func (*IDPhone) ProtoMessage()               {}
-func (*IDPhone) Descriptor() ([]byte, []int) { return fileDescriptorUser, []int{7} }
+func (m *IDPhone) Reset()         { *m = IDPhone{} }
+func (m *IDPhone) String() string { return proto.CompactTextString(m) }
+func (*IDPhone) ProtoMessage()    {}
+func (*IDPhone) Descriptor() ([]byte, []int) {
+	return fileDescriptor_user_9d32c4e0145e8e69, []int{7}
+}
+func (m *IDPhone) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *IDPhone) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_IDPhone.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *IDPhone) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_IDPhone.Merge(dst, src)
+}
+func (m *IDPhone) XXX_Size() int {
+	return m.Size()
+}
+func (m *IDPhone) XXX_DiscardUnknown() {
+	xxx_messageInfo_IDPhone.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_IDPhone proto.InternalMessageInfo
 
 func (m *IDPhone) GetID() int64 {
 	if m != nil {
@@ -323,14 +580,45 @@ func (*IDPhone) XXX_MessageName() string {
 
 // IDEmail IDEmail
 type IDEmail struct {
-	ID    int64  `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Email string `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
+	ID                   int64    `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Email                string   `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *IDEmail) Reset()                    { *m = IDEmail{} }
-func (m *IDEmail) String() string            { return proto.CompactTextString(m) }
-func (*IDEmail) ProtoMessage()               {}
-func (*IDEmail) Descriptor() ([]byte, []int) { return fileDescriptorUser, []int{8} }
+func (m *IDEmail) Reset()         { *m = IDEmail{} }
+func (m *IDEmail) String() string { return proto.CompactTextString(m) }
+func (*IDEmail) ProtoMessage()    {}
+func (*IDEmail) Descriptor() ([]byte, []int) {
+	return fileDescriptor_user_9d32c4e0145e8e69, []int{8}
+}
+func (m *IDEmail) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *IDEmail) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_IDEmail.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *IDEmail) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_IDEmail.Merge(dst, src)
+}
+func (m *IDEmail) XXX_Size() int {
+	return m.Size()
+}
+func (m *IDEmail) XXX_DiscardUnknown() {
+	xxx_messageInfo_IDEmail.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_IDEmail proto.InternalMessageInfo
 
 func (m *IDEmail) GetID() int64 {
 	if m != nil {
@@ -352,14 +640,45 @@ func (*IDEmail) XXX_MessageName() string {
 
 // IDNickname IDNickname
 type IDNickname struct {
-	ID       int64  `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	NickName string `protobuf:"bytes,2,opt,name=nick_name,json=nickName,proto3" json:"nick_name,omitempty"`
+	ID                   int64    `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	NickName             string   `protobuf:"bytes,2,opt,name=nick_name,json=nickName,proto3" json:"nick_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *IDNickname) Reset()                    { *m = IDNickname{} }
-func (m *IDNickname) String() string            { return proto.CompactTextString(m) }
-func (*IDNickname) ProtoMessage()               {}
-func (*IDNickname) Descriptor() ([]byte, []int) { return fileDescriptorUser, []int{9} }
+func (m *IDNickname) Reset()         { *m = IDNickname{} }
+func (m *IDNickname) String() string { return proto.CompactTextString(m) }
+func (*IDNickname) ProtoMessage()    {}
+func (*IDNickname) Descriptor() ([]byte, []int) {
+	return fileDescriptor_user_9d32c4e0145e8e69, []int{9}
+}
+func (m *IDNickname) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *IDNickname) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_IDNickname.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *IDNickname) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_IDNickname.Merge(dst, src)
+}
+func (m *IDNickname) XXX_Size() int {
+	return m.Size()
+}
+func (m *IDNickname) XXX_DiscardUnknown() {
+	xxx_messageInfo_IDNickname.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_IDNickname proto.InternalMessageInfo
 
 func (m *IDNickname) GetID() int64 {
 	if m != nil {
@@ -381,14 +700,45 @@ func (*IDNickname) XXX_MessageName() string {
 
 // IDAvatar IDAvatar
 type IDAvatar struct {
-	ID     int64  `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Avatar string `protobuf:"bytes,2,opt,name=avatar,proto3" json:"avatar,omitempty"`
+	ID                   int64    `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Avatar               string   `protobuf:"bytes,2,opt,name=avatar,proto3" json:"avatar,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *IDAvatar) Reset()                    { *m = IDAvatar{} }
-func (m *IDAvatar) String() string            { return proto.CompactTextString(m) }
-func (*IDAvatar) ProtoMessage()               {}
-func (*IDAvatar) Descriptor() ([]byte, []int) { return fileDescriptorUser, []int{10} }
+func (m *IDAvatar) Reset()         { *m = IDAvatar{} }
+func (m *IDAvatar) String() string { return proto.CompactTextString(m) }
+func (*IDAvatar) ProtoMessage()    {}
+func (*IDAvatar) Descriptor() ([]byte, []int) {
+	return fileDescriptor_user_9d32c4e0145e8e69, []int{10}
+}
+func (m *IDAvatar) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *IDAvatar) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_IDAvatar.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *IDAvatar) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_IDAvatar.Merge(dst, src)
+}
+func (m *IDAvatar) XXX_Size() int {
+	return m.Size()
+}
+func (m *IDAvatar) XXX_DiscardUnknown() {
+	xxx_messageInfo_IDAvatar.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_IDAvatar proto.InternalMessageInfo
 
 func (m *IDAvatar) GetID() int64 {
 	if m != nil {
@@ -410,14 +760,45 @@ func (*IDAvatar) XXX_MessageName() string {
 
 // IDStatus IDStatus
 type IDStatus struct {
-	ID     int64      `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Status UserStatus `protobuf:"varint,2,opt,name=status,proto3,enum=user.UserStatus" json:"status,omitempty"`
+	ID                   int64      `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Status               UserStatus `protobuf:"varint,2,opt,name=status,proto3,enum=user.UserStatus" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
+	XXX_unrecognized     []byte     `json:"-"`
+	XXX_sizecache        int32      `json:"-"`
 }
 
-func (m *IDStatus) Reset()                    { *m = IDStatus{} }
-func (m *IDStatus) String() string            { return proto.CompactTextString(m) }
-func (*IDStatus) ProtoMessage()               {}
-func (*IDStatus) Descriptor() ([]byte, []int) { return fileDescriptorUser, []int{11} }
+func (m *IDStatus) Reset()         { *m = IDStatus{} }
+func (m *IDStatus) String() string { return proto.CompactTextString(m) }
+func (*IDStatus) ProtoMessage()    {}
+func (*IDStatus) Descriptor() ([]byte, []int) {
+	return fileDescriptor_user_9d32c4e0145e8e69, []int{11}
+}
+func (m *IDStatus) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *IDStatus) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_IDStatus.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *IDStatus) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_IDStatus.Merge(dst, src)
+}
+func (m *IDStatus) XXX_Size() int {
+	return m.Size()
+}
+func (m *IDStatus) XXX_DiscardUnknown() {
+	xxx_messageInfo_IDStatus.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_IDStatus proto.InternalMessageInfo
 
 func (m *IDStatus) GetID() int64 {
 	if m != nil {
@@ -473,23 +854,24 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// Client API for RPCService service
-
+// RPCServiceClient is the client API for RPCService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type RPCServiceClient interface {
 	// Create 创建用户
-	Create(ctx context.Context, in *User, opts ...grpc.CallOption) (*google_protobuf2.Empty, error)
+	Create(ctx context.Context, in *User, opts ...grpc.CallOption) (*types.Empty, error)
 	// UpdatePassword 更新密码
-	UpdatePassword(ctx context.Context, in *IDPassword, opts ...grpc.CallOption) (*google_protobuf2.Empty, error)
+	UpdatePassword(ctx context.Context, in *IDPassword, opts ...grpc.CallOption) (*types.Empty, error)
 	// UpdatePhone  更新手机号
-	UpdatePhone(ctx context.Context, in *IDPhone, opts ...grpc.CallOption) (*google_protobuf2.Empty, error)
+	UpdatePhone(ctx context.Context, in *IDPhone, opts ...grpc.CallOption) (*types.Empty, error)
 	// UpdateEmail 更新email
-	UpdateEmail(ctx context.Context, in *IDEmail, opts ...grpc.CallOption) (*google_protobuf2.Empty, error)
+	UpdateEmail(ctx context.Context, in *IDEmail, opts ...grpc.CallOption) (*types.Empty, error)
 	// UpdateNickname 更新昵称
-	UpdateNickname(ctx context.Context, in *IDNickname, opts ...grpc.CallOption) (*google_protobuf2.Empty, error)
+	UpdateNickname(ctx context.Context, in *IDNickname, opts ...grpc.CallOption) (*types.Empty, error)
 	// UpdateAvatar 更新头像
-	UpdateAvatar(ctx context.Context, in *IDAvatar, opts ...grpc.CallOption) (*google_protobuf2.Empty, error)
+	UpdateAvatar(ctx context.Context, in *IDAvatar, opts ...grpc.CallOption) (*types.Empty, error)
 	// UpdateStatus 更新状态
-	UpdateStatus(ctx context.Context, in *IDStatus, opts ...grpc.CallOption) (*google_protobuf2.Empty, error)
+	UpdateStatus(ctx context.Context, in *IDStatus, opts ...grpc.CallOption) (*types.Empty, error)
 	// InfoByID 通过id查询
 	InfoByID(ctx context.Context, in *ID, opts ...grpc.CallOption) (*User, error)
 	// InfoByPhone 通过手机查询
@@ -510,63 +892,63 @@ func NewRPCServiceClient(cc *grpc.ClientConn) RPCServiceClient {
 	return &rPCServiceClient{cc}
 }
 
-func (c *rPCServiceClient) Create(ctx context.Context, in *User, opts ...grpc.CallOption) (*google_protobuf2.Empty, error) {
-	out := new(google_protobuf2.Empty)
-	err := grpc.Invoke(ctx, "/user.RPCService/Create", in, out, c.cc, opts...)
+func (c *rPCServiceClient) Create(ctx context.Context, in *User, opts ...grpc.CallOption) (*types.Empty, error) {
+	out := new(types.Empty)
+	err := c.cc.Invoke(ctx, "/user.RPCService/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *rPCServiceClient) UpdatePassword(ctx context.Context, in *IDPassword, opts ...grpc.CallOption) (*google_protobuf2.Empty, error) {
-	out := new(google_protobuf2.Empty)
-	err := grpc.Invoke(ctx, "/user.RPCService/UpdatePassword", in, out, c.cc, opts...)
+func (c *rPCServiceClient) UpdatePassword(ctx context.Context, in *IDPassword, opts ...grpc.CallOption) (*types.Empty, error) {
+	out := new(types.Empty)
+	err := c.cc.Invoke(ctx, "/user.RPCService/UpdatePassword", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *rPCServiceClient) UpdatePhone(ctx context.Context, in *IDPhone, opts ...grpc.CallOption) (*google_protobuf2.Empty, error) {
-	out := new(google_protobuf2.Empty)
-	err := grpc.Invoke(ctx, "/user.RPCService/UpdatePhone", in, out, c.cc, opts...)
+func (c *rPCServiceClient) UpdatePhone(ctx context.Context, in *IDPhone, opts ...grpc.CallOption) (*types.Empty, error) {
+	out := new(types.Empty)
+	err := c.cc.Invoke(ctx, "/user.RPCService/UpdatePhone", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *rPCServiceClient) UpdateEmail(ctx context.Context, in *IDEmail, opts ...grpc.CallOption) (*google_protobuf2.Empty, error) {
-	out := new(google_protobuf2.Empty)
-	err := grpc.Invoke(ctx, "/user.RPCService/UpdateEmail", in, out, c.cc, opts...)
+func (c *rPCServiceClient) UpdateEmail(ctx context.Context, in *IDEmail, opts ...grpc.CallOption) (*types.Empty, error) {
+	out := new(types.Empty)
+	err := c.cc.Invoke(ctx, "/user.RPCService/UpdateEmail", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *rPCServiceClient) UpdateNickname(ctx context.Context, in *IDNickname, opts ...grpc.CallOption) (*google_protobuf2.Empty, error) {
-	out := new(google_protobuf2.Empty)
-	err := grpc.Invoke(ctx, "/user.RPCService/UpdateNickname", in, out, c.cc, opts...)
+func (c *rPCServiceClient) UpdateNickname(ctx context.Context, in *IDNickname, opts ...grpc.CallOption) (*types.Empty, error) {
+	out := new(types.Empty)
+	err := c.cc.Invoke(ctx, "/user.RPCService/UpdateNickname", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *rPCServiceClient) UpdateAvatar(ctx context.Context, in *IDAvatar, opts ...grpc.CallOption) (*google_protobuf2.Empty, error) {
-	out := new(google_protobuf2.Empty)
-	err := grpc.Invoke(ctx, "/user.RPCService/UpdateAvatar", in, out, c.cc, opts...)
+func (c *rPCServiceClient) UpdateAvatar(ctx context.Context, in *IDAvatar, opts ...grpc.CallOption) (*types.Empty, error) {
+	out := new(types.Empty)
+	err := c.cc.Invoke(ctx, "/user.RPCService/UpdateAvatar", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *rPCServiceClient) UpdateStatus(ctx context.Context, in *IDStatus, opts ...grpc.CallOption) (*google_protobuf2.Empty, error) {
-	out := new(google_protobuf2.Empty)
-	err := grpc.Invoke(ctx, "/user.RPCService/UpdateStatus", in, out, c.cc, opts...)
+func (c *rPCServiceClient) UpdateStatus(ctx context.Context, in *IDStatus, opts ...grpc.CallOption) (*types.Empty, error) {
+	out := new(types.Empty)
+	err := c.cc.Invoke(ctx, "/user.RPCService/UpdateStatus", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -575,7 +957,7 @@ func (c *rPCServiceClient) UpdateStatus(ctx context.Context, in *IDStatus, opts 
 
 func (c *rPCServiceClient) InfoByID(ctx context.Context, in *ID, opts ...grpc.CallOption) (*User, error) {
 	out := new(User)
-	err := grpc.Invoke(ctx, "/user.RPCService/InfoByID", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/user.RPCService/InfoByID", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -584,7 +966,7 @@ func (c *rPCServiceClient) InfoByID(ctx context.Context, in *ID, opts ...grpc.Ca
 
 func (c *rPCServiceClient) InfoByPhone(ctx context.Context, in *Phone, opts ...grpc.CallOption) (*User, error) {
 	out := new(User)
-	err := grpc.Invoke(ctx, "/user.RPCService/InfoByPhone", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/user.RPCService/InfoByPhone", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -593,7 +975,7 @@ func (c *rPCServiceClient) InfoByPhone(ctx context.Context, in *Phone, opts ...g
 
 func (c *rPCServiceClient) InfoByEmail(ctx context.Context, in *Email, opts ...grpc.CallOption) (*User, error) {
 	out := new(User)
-	err := grpc.Invoke(ctx, "/user.RPCService/InfoByEmail", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/user.RPCService/InfoByEmail", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -602,7 +984,7 @@ func (c *rPCServiceClient) InfoByEmail(ctx context.Context, in *Email, opts ...g
 
 func (c *rPCServiceClient) InfoByNickname(ctx context.Context, in *Nickname, opts ...grpc.CallOption) (*User, error) {
 	out := new(User)
-	err := grpc.Invoke(ctx, "/user.RPCService/InfoByNickname", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/user.RPCService/InfoByNickname", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -611,30 +993,29 @@ func (c *rPCServiceClient) InfoByNickname(ctx context.Context, in *Nickname, opt
 
 func (c *rPCServiceClient) InfoByAccount(ctx context.Context, in *Account, opts ...grpc.CallOption) (*User, error) {
 	out := new(User)
-	err := grpc.Invoke(ctx, "/user.RPCService/InfoByAccount", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/user.RPCService/InfoByAccount", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// Server API for RPCService service
-
+// RPCServiceServer is the server API for RPCService service.
 type RPCServiceServer interface {
 	// Create 创建用户
-	Create(context.Context, *User) (*google_protobuf2.Empty, error)
+	Create(context.Context, *User) (*types.Empty, error)
 	// UpdatePassword 更新密码
-	UpdatePassword(context.Context, *IDPassword) (*google_protobuf2.Empty, error)
+	UpdatePassword(context.Context, *IDPassword) (*types.Empty, error)
 	// UpdatePhone  更新手机号
-	UpdatePhone(context.Context, *IDPhone) (*google_protobuf2.Empty, error)
+	UpdatePhone(context.Context, *IDPhone) (*types.Empty, error)
 	// UpdateEmail 更新email
-	UpdateEmail(context.Context, *IDEmail) (*google_protobuf2.Empty, error)
+	UpdateEmail(context.Context, *IDEmail) (*types.Empty, error)
 	// UpdateNickname 更新昵称
-	UpdateNickname(context.Context, *IDNickname) (*google_protobuf2.Empty, error)
+	UpdateNickname(context.Context, *IDNickname) (*types.Empty, error)
 	// UpdateAvatar 更新头像
-	UpdateAvatar(context.Context, *IDAvatar) (*google_protobuf2.Empty, error)
+	UpdateAvatar(context.Context, *IDAvatar) (*types.Empty, error)
 	// UpdateStatus 更新状态
-	UpdateStatus(context.Context, *IDStatus) (*google_protobuf2.Empty, error)
+	UpdateStatus(context.Context, *IDStatus) (*types.Empty, error)
 	// InfoByID 通过id查询
 	InfoByID(context.Context, *ID) (*User, error)
 	// InfoByPhone 通过手机查询
@@ -987,20 +1368,23 @@ func (m *User) MarshalTo(dAtA []byte) (int, error) {
 	}
 	dAtA[i] = 0x4a
 	i++
-	i = encodeVarintUser(dAtA, i, uint64(types.SizeOfStdTime(m.CreatedAt)))
-	n1, err := types.StdTimeMarshalTo(m.CreatedAt, dAtA[i:])
+	i = encodeVarintUser(dAtA, i, uint64(github_com_gogo_protobuf_types.SizeOfStdTime(m.CreatedAt)))
+	n1, err := github_com_gogo_protobuf_types.StdTimeMarshalTo(m.CreatedAt, dAtA[i:])
 	if err != nil {
 		return 0, err
 	}
 	i += n1
 	dAtA[i] = 0x52
 	i++
-	i = encodeVarintUser(dAtA, i, uint64(types.SizeOfStdTime(m.UpdatedAt)))
-	n2, err := types.StdTimeMarshalTo(m.UpdatedAt, dAtA[i:])
+	i = encodeVarintUser(dAtA, i, uint64(github_com_gogo_protobuf_types.SizeOfStdTime(m.UpdatedAt)))
+	n2, err := github_com_gogo_protobuf_types.StdTimeMarshalTo(m.UpdatedAt, dAtA[i:])
 	if err != nil {
 		return 0, err
 	}
 	i += n2
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
 	return i, nil
 }
 
@@ -1023,6 +1407,9 @@ func (m *ID) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x8
 		i++
 		i = encodeVarintUser(dAtA, i, uint64(m.ID))
+	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	return i, nil
 }
@@ -1048,6 +1435,9 @@ func (m *Phone) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintUser(dAtA, i, uint64(len(m.Phone)))
 		i += copy(dAtA[i:], m.Phone)
 	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
 	return i, nil
 }
 
@@ -1071,6 +1461,9 @@ func (m *Email) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintUser(dAtA, i, uint64(len(m.Email)))
 		i += copy(dAtA[i:], m.Email)
+	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	return i, nil
 }
@@ -1096,6 +1489,9 @@ func (m *Nickname) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintUser(dAtA, i, uint64(len(m.Nickname)))
 		i += copy(dAtA[i:], m.Nickname)
 	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
 	return i, nil
 }
 
@@ -1119,6 +1515,9 @@ func (m *Account) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintUser(dAtA, i, uint64(len(m.Account)))
 		i += copy(dAtA[i:], m.Account)
+	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	return i, nil
 }
@@ -1155,6 +1554,9 @@ func (m *IDPassword) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintUser(dAtA, i, uint64(len(m.Salt)))
 		i += copy(dAtA[i:], m.Salt)
 	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
 	return i, nil
 }
 
@@ -1183,6 +1585,9 @@ func (m *IDPhone) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintUser(dAtA, i, uint64(len(m.Phone)))
 		i += copy(dAtA[i:], m.Phone)
+	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	return i, nil
 }
@@ -1213,6 +1618,9 @@ func (m *IDEmail) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintUser(dAtA, i, uint64(len(m.Email)))
 		i += copy(dAtA[i:], m.Email)
 	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
 	return i, nil
 }
 
@@ -1241,6 +1649,9 @@ func (m *IDNickname) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintUser(dAtA, i, uint64(len(m.NickName)))
 		i += copy(dAtA[i:], m.NickName)
+	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	return i, nil
 }
@@ -1271,6 +1682,9 @@ func (m *IDAvatar) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintUser(dAtA, i, uint64(len(m.Avatar)))
 		i += copy(dAtA[i:], m.Avatar)
 	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
 	return i, nil
 }
 
@@ -1299,6 +1713,9 @@ func (m *IDStatus) MarshalTo(dAtA []byte) (int, error) {
 		i++
 		i = encodeVarintUser(dAtA, i, uint64(m.Status))
 	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
 	return i, nil
 }
 
@@ -1312,6 +1729,9 @@ func encodeVarintUser(dAtA []byte, offset int, v uint64) int {
 	return offset + 1
 }
 func (m *User) Size() (n int) {
+	if m == nil {
+		return 0
+	}
 	var l int
 	_ = l
 	if m.ID != 0 {
@@ -1344,63 +1764,99 @@ func (m *User) Size() (n int) {
 	if m.Status != 0 {
 		n += 1 + sovUser(uint64(m.Status))
 	}
-	l = types.SizeOfStdTime(m.CreatedAt)
+	l = github_com_gogo_protobuf_types.SizeOfStdTime(m.CreatedAt)
 	n += 1 + l + sovUser(uint64(l))
-	l = types.SizeOfStdTime(m.UpdatedAt)
+	l = github_com_gogo_protobuf_types.SizeOfStdTime(m.UpdatedAt)
 	n += 1 + l + sovUser(uint64(l))
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
 	return n
 }
 
 func (m *ID) Size() (n int) {
+	if m == nil {
+		return 0
+	}
 	var l int
 	_ = l
 	if m.ID != 0 {
 		n += 1 + sovUser(uint64(m.ID))
 	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
 	return n
 }
 
 func (m *Phone) Size() (n int) {
+	if m == nil {
+		return 0
+	}
 	var l int
 	_ = l
 	l = len(m.Phone)
 	if l > 0 {
 		n += 1 + l + sovUser(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
 	return n
 }
 
 func (m *Email) Size() (n int) {
+	if m == nil {
+		return 0
+	}
 	var l int
 	_ = l
 	l = len(m.Email)
 	if l > 0 {
 		n += 1 + l + sovUser(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
 	return n
 }
 
 func (m *Nickname) Size() (n int) {
+	if m == nil {
+		return 0
+	}
 	var l int
 	_ = l
 	l = len(m.Nickname)
 	if l > 0 {
 		n += 1 + l + sovUser(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
 	return n
 }
 
 func (m *Account) Size() (n int) {
+	if m == nil {
+		return 0
+	}
 	var l int
 	_ = l
 	l = len(m.Account)
 	if l > 0 {
 		n += 1 + l + sovUser(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
 	return n
 }
 
 func (m *IDPassword) Size() (n int) {
+	if m == nil {
+		return 0
+	}
 	var l int
 	_ = l
 	if m.ID != 0 {
@@ -1414,10 +1870,16 @@ func (m *IDPassword) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovUser(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
 	return n
 }
 
 func (m *IDPhone) Size() (n int) {
+	if m == nil {
+		return 0
+	}
 	var l int
 	_ = l
 	if m.ID != 0 {
@@ -1427,10 +1889,16 @@ func (m *IDPhone) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovUser(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
 	return n
 }
 
 func (m *IDEmail) Size() (n int) {
+	if m == nil {
+		return 0
+	}
 	var l int
 	_ = l
 	if m.ID != 0 {
@@ -1440,10 +1908,16 @@ func (m *IDEmail) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovUser(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
 	return n
 }
 
 func (m *IDNickname) Size() (n int) {
+	if m == nil {
+		return 0
+	}
 	var l int
 	_ = l
 	if m.ID != 0 {
@@ -1453,10 +1927,16 @@ func (m *IDNickname) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovUser(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
 	return n
 }
 
 func (m *IDAvatar) Size() (n int) {
+	if m == nil {
+		return 0
+	}
 	var l int
 	_ = l
 	if m.ID != 0 {
@@ -1466,10 +1946,16 @@ func (m *IDAvatar) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovUser(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
 	return n
 }
 
 func (m *IDStatus) Size() (n int) {
+	if m == nil {
+		return 0
+	}
 	var l int
 	_ = l
 	if m.ID != 0 {
@@ -1477,6 +1963,9 @@ func (m *IDStatus) Size() (n int) {
 	}
 	if m.Status != 0 {
 		n += 1 + sovUser(uint64(m.Status))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -1761,7 +2250,7 @@ func (m *User) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			if err := types.StdTimeUnmarshal(&m.CreatedAt, dAtA[iNdEx:postIndex]); err != nil {
+			if err := github_com_gogo_protobuf_types.StdTimeUnmarshal(&m.CreatedAt, dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
@@ -1791,7 +2280,7 @@ func (m *User) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			if err := types.StdTimeUnmarshal(&m.UpdatedAt, dAtA[iNdEx:postIndex]); err != nil {
+			if err := github_com_gogo_protobuf_types.StdTimeUnmarshal(&m.UpdatedAt, dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
@@ -1807,6 +2296,7 @@ func (m *User) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1876,6 +2366,7 @@ func (m *ID) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1955,6 +2446,7 @@ func (m *Phone) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2034,6 +2526,7 @@ func (m *Email) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2113,6 +2606,7 @@ func (m *Nickname) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2192,6 +2686,7 @@ func (m *Account) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2319,6 +2814,7 @@ func (m *IDPassword) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2417,6 +2913,7 @@ func (m *IDPhone) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2515,6 +3012,7 @@ func (m *IDEmail) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2613,6 +3111,7 @@ func (m *IDNickname) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2711,6 +3210,7 @@ func (m *IDAvatar) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2799,6 +3299,7 @@ func (m *IDStatus) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -2913,10 +3414,12 @@ var (
 	ErrIntOverflowUser   = fmt.Errorf("proto: integer overflow")
 )
 
-func init() { proto.RegisterFile("api/protobuf/user/user.proto", fileDescriptorUser) }
-func init() { golang_proto.RegisterFile("api/protobuf/user/user.proto", fileDescriptorUser) }
+func init() { proto.RegisterFile("api/protobuf/user/user.proto", fileDescriptor_user_9d32c4e0145e8e69) }
+func init() {
+	golang_proto.RegisterFile("api/protobuf/user/user.proto", fileDescriptor_user_9d32c4e0145e8e69)
+}
 
-var fileDescriptorUser = []byte{
+var fileDescriptor_user_9d32c4e0145e8e69 = []byte{
 	// 927 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x96, 0xcf, 0x6b, 0xe3, 0x46,
 	0x14, 0xc7, 0x57, 0x8a, 0x63, 0x2b, 0xcf, 0xdd, 0x10, 0x86, 0x90, 0x28, 0x8e, 0xd7, 0xf6, 0xaa,

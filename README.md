@@ -58,3 +58,10 @@ if err != nil {
 ### 5、编译 make gb
 
 ### 6、运行 make up
+
+
+
+  go get -u github.com/gogo/protobuf/protoc-gen-gogo
+  go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
+  go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+  go get -u github.com/mwitkow/go-proto-validators/protoc-gen-govalidators

@@ -10,8 +10,8 @@ up:
 
 install:
 	go install \
-		./vendor/github.com/gogo/protobuf/protoc-gen-gogo \
-		./vendor/github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway \
-		./vendor/github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger \
-		./vendor/github.com/mwitkow/go-proto-validators/protoc-gen-govalidators \
-		./vendor/github.com/rakyll/statik
+		./cmd/github.com/gogo/protobuf/protoc-gen-gogo \
+		./cmd/github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway \
+		./cmd/github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger \
+		./cmd/github.com/mwitkow/go-proto-validators/protoc-gen-govalidators \
+		./cmd/github.com/rakyll/statik
