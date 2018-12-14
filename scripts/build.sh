@@ -1,1 +1,1 @@
-go build -v -o bin/swagger cmd/swagger/main.go
+go build -v -mod=vendor -o bin/swagger cmd/swagger/main.go
