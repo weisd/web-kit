@@ -61,7 +61,12 @@ if err != nil {
 
 
 
+## 依赖
+
+```go
   go get -u github.com/gogo/protobuf/protoc-gen-gogo
   go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
   go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
   go get -u github.com/mwitkow/go-proto-validators/protoc-gen-govalidators
+  go get -u github.com/rakyll/statik
+```
