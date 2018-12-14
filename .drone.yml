@@ -7,4 +7,5 @@ pipeline:
     commands:
       - echo $GOPATH
       - pwd
+      - make gen
       - go build -v -o bin/swagger cmd/swagger/main.go 
