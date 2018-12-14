@@ -1,3 +1,5 @@
+# github.com/ghodss/yaml v1.0.0
+github.com/ghodss/yaml
 # github.com/go-sql-driver/mysql v1.4.1
 github.com/go-sql-driver/mysql
 # github.com/gogo/gateway v1.0.0
@@ -8,11 +10,36 @@ github.com/gogo/googleapis/google/api
 github.com/gogo/protobuf/gogoproto
 github.com/gogo/protobuf/proto
 github.com/gogo/protobuf/types
+github.com/gogo/protobuf/vanity/command
+github.com/gogo/protobuf/protoc-gen-gogo/generator
 github.com/gogo/protobuf/protoc-gen-gogo/descriptor
 github.com/gogo/protobuf/sortkeys
+github.com/gogo/protobuf/plugin/compare
+github.com/gogo/protobuf/plugin/defaultcheck
+github.com/gogo/protobuf/plugin/description
+github.com/gogo/protobuf/plugin/embedcheck
+github.com/gogo/protobuf/plugin/enumstringer
+github.com/gogo/protobuf/plugin/equal
+github.com/gogo/protobuf/plugin/face
+github.com/gogo/protobuf/plugin/gostring
+github.com/gogo/protobuf/plugin/marshalto
+github.com/gogo/protobuf/plugin/oneofcheck
+github.com/gogo/protobuf/plugin/populate
+github.com/gogo/protobuf/plugin/size
+github.com/gogo/protobuf/plugin/stringer
+github.com/gogo/protobuf/plugin/testgen
+github.com/gogo/protobuf/plugin/union
+github.com/gogo/protobuf/plugin/unmarshal
+github.com/gogo/protobuf/protoc-gen-gogo/grpc
+github.com/gogo/protobuf/protoc-gen-gogo/plugin
+github.com/gogo/protobuf/protoc-gen-gogo/generator/internal/remap
+github.com/gogo/protobuf/vanity
 github.com/gogo/protobuf/jsonpb
+# github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
+github.com/golang/glog
 # github.com/golang/protobuf v1.2.0
 github.com/golang/protobuf/proto
+github.com/golang/protobuf/protoc-gen-go/plugin
 github.com/golang/protobuf/protoc-gen-go/descriptor
 github.com/golang/protobuf/ptypes/any
 github.com/golang/protobuf/jsonpb
@@ -23,25 +50,31 @@ github.com/golang/protobuf/ptypes/wrappers
 github.com/golang/protobuf/ptypes
 github.com/golang/protobuf/ptypes/struct
 github.com/golang/protobuf/protoc-gen-go/generator/internal/remap
-github.com/golang/protobuf/protoc-gen-go/plugin
 # github.com/grpc-ecosystem/go-grpc-middleware v1.0.0
 github.com/grpc-ecosystem/go-grpc-middleware/validator
 # github.com/grpc-ecosystem/grpc-gateway v1.6.2
 github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options
 github.com/grpc-ecosystem/grpc-gateway/runtime
 github.com/grpc-ecosystem/grpc-gateway/utilities
+github.com/grpc-ecosystem/grpc-gateway/codegenerator
+github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway/descriptor
+github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway/gengateway
+github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/genswagger
 github.com/grpc-ecosystem/grpc-gateway/runtime/internal
+github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway/httprule
+github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway/generator
 # github.com/jinzhu/gorm v1.9.2
 github.com/jinzhu/gorm
 # github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a
 github.com/jinzhu/inflection
 # github.com/mwitkow/go-proto-validators v0.0.0-20180403085117-0950a7990007
 github.com/mwitkow/go-proto-validators
+github.com/mwitkow/go-proto-validators/plugin
 # github.com/pkg/errors v0.8.0
 github.com/pkg/errors
 # github.com/rakyll/statik v0.1.5
 github.com/rakyll/statik/fs
-# golang.org/x/net v0.0.0-20181201002055-351d144fa1fc
+# golang.org/x/net v0.0.0-20181213202711-891ebc4b82d6
 golang.org/x/net/context
 golang.org/x/net/trace
 golang.org/x/net/internal/timeseries
@@ -61,6 +94,7 @@ google.golang.org/appengine/cloudsql
 # google.golang.org/genproto v0.0.0-20180817151627-c66870c02cf8
 google.golang.org/genproto/protobuf/field_mask
 google.golang.org/genproto/googleapis/rpc/status
+google.golang.org/genproto/googleapis/api/annotations
 # google.golang.org/grpc v1.17.0
 google.golang.org/grpc
 google.golang.org/grpc/codes
@@ -93,3 +127,5 @@ google.golang.org/grpc/credentials/internal
 google.golang.org/grpc/balancer/base
 google.golang.org/grpc/binarylog/grpc_binarylog_v1
 google.golang.org/grpc/internal/syscall
+# gopkg.in/yaml.v2 v2.2.2
+gopkg.in/yaml.v2
